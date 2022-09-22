@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!-- saved from url=(0019)https://monteon.ru/ -->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Тест монитора онлайн - monteon</title>
+    <meta name="description"
+          content="Онлайн сервіс для перевірки та налаштування монітора: перевірка на биті пікселі, кольори, відгуки та ін. Програма тесту монітора. Онлайн сервис для проверки и настройки монитора: проверка на битые пиксели, цветопередачи, отклика и др. Программа теста монитора.">
+    <meta name="keywords"
+          content="монітор, дисплей, екран, тест, перевірка, налаштування, калібрування, динамічні тести, монитор, дисплей, экран, тест, проверка, настройка, калибровка, динамические тесты">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+
+    <!-- Yandex.RTB -->
+    <!-- <script type="text/javascript" async="" src="assets/js/watch.js"></script> -->
+
+    <!-- <style type="text/css">
+        .pixelParallel-panel[data-v-54cb82b4] {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            z-index: 2147483647;
+            width: 375px;
+            height: 265px;
+            transform: translate(0);
+            background: #fff;
+            transition: width .2s ease-out, height .2s ease-out;
+            will-change: top, left, width, height, transform;
+            opacity: 0
+        }
+
+        .pixelParallel-panel-inner[data-v-54cb82b4] {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid #dddedf;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            box-sizing: border-box
+        }
+
+        .pixelParallel-panel-handle[data-v-54cb82b4] {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(45deg);
+            background: linear-gradient(0deg, transparent, transparent 50%, #ccc 0, #ccc);
+            background-size: 100% 2px;
+            cursor: move
+        }
+
+        .pixelParallel-panel-isolator[data-v-54cb82b4] {
+            border: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative
+        }
+
+        .pixelParallel-panel-dragging .pixelParallel-panel-inner[data-v-54cb82b4] {
+            pointer-events: none
+        }
+
+        .pixelParallel-panel-minimized[data-v-54cb82b4] {
+            width: 112px;
+            height: 50px;
+            transition: width .2s ease-out .15s, height .2s ease-out .15s
+        }
+
+        @media (max-width:395px) {
+            .pixelParallel-panel[data-v-54cb82b4] {
+                right: 0;
+                bottom: 0;
+                width: 320px
+            }
+
+            .pixelParallel-panel-minimized[data-v-54cb82b4] {
+                width: 112px
+            }
+        }
+    </style> -->
+    <!-- <style type="text/css">
+        .pixelParallel-overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            display: none
+        }
+
+        .pixelParallel-overlay-enabled {
+            display: block
+        }
+    </style> -->
+    <!-- <style type="text/css">
+        .pixelParallel-image-outer {
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            max-width: 100vw;
+            min-height: 100vh
+        }
+
+        .pixelParallel-image-inner {
+            position: absolute;
+            z-index: 2147483646;
+            left: 50%;
+            top: 0;
+            cursor: move;
+            transform: translateX(-50%);
+            transition: opacity .15s
+        }
+
+        .pixelParallel-image-inner img {
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            vertical-align: top;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            transform-origin: 50% 0;
+            top: -1px;
+            border: 1px dashed #333
+        }
+
+        .pixelParallel-image-inner img:not([src]),
+        .pixelParallel-image-inner img[src=""] {
+            visibility: hidden
+        }
+
+        .pixelParallel-image-enabled {
+            visibility: visible
+        }
+
+        .pixelParallel-image-difference {
+            mix-blend-mode: difference
+        }
+
+        .pixelParallel-image-difference img {
+            opacity: 1 !important
+        }
+
+        .pixelParallel-image-locked,
+        .pixelParallel-image-no-image {
+            pointer-events: none
+        }
+
+        .pixelParallel-image-locked .pixelParallel-image-inner img {
+            top: 0;
+            border: 0 none
+        }
+    </style> -->
+    <!-- <style type="text/css">
+        .pixelParallel-grids {
+            position: relative;
+            z-index: 2147483646;
+            pointer-events: none
+        }
+
+        .pixelParallel-grid-horizontal,
+        .pixelParallel-grid-vertical {
+            position: fixed;
+            z-index: 1;
+            pointer-events: none;
+            visibility: hidden
+        }
+
+        .pixelParallel-grid-horizontal {
+            top: 50%;
+            left: 50%;
+            display: table;
+            width: 100vw;
+            height: 200vh;
+            opacity: .5;
+            table-layout: fixed;
+            border-spacing: 30px;
+            transform: translate(-50%, -50%)
+        }
+
+        .pixelParallel-grid-horizontal span {
+            display: table-cell;
+            background: red;
+            height: 200vh
+        }
+
+        .pixelParallel-grid-vertical {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, transparent 90%, blue 0, blue);
+            background-size: 100% 10px;
+            opacity: .5
+        }
+
+        .pixelParallel-grid-horizontal-enabled,
+        .pixelParallel-grid-vertical-enabled {
+            visibility: visible
+        }
+    </style> -->
+    <!-- <style type="text/css">
+        .pixelParallel-rulers {
+            position: relative;
+            z-index: 2147483646
+        }
+
+        .pixelParallel-ruler-x,
+        .pixelParallel-ruler-y {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            background: cyan
+        }
+
+        .pixelParallel-ruler-x:after,
+        .pixelParallel-ruler-y:after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: 0;
+            bottom: 0;
+            padding: 10px
+        }
+
+        .pixelParallel-ruler-x {
+            right: 0;
+            height: 1px;
+            cursor: row-resize
+        }
+
+        .pixelParallel-ruler-y {
+            bottom: 0;
+            width: 1px;
+            cursor: col-resize
+        }
+
+        .pixelParallel-rulers-enabled .pixelParallel-ruler-x,
+        .pixelParallel-rulers-enabled .pixelParallel-ruler-y {
+            display: block
+        }
+    </style> -->
+</head>
+
+<body cz-shortcut-listen="true" class="" style="cursor: default;">
+    <header id="page-header" style="display: block;">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        <a class="navbar-title" href="/"
+                           title="проовірка монітора онлайн, проверка монитора онлайн">monitor-test</a>&nbsp;&nbsp;&nbsp;<sup>тест
+                            монітора онлайн</sup>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article">
+        <div id="front" style="display: block;">
+            <div class="front-content">
+                <div class="container">
+                    <div id="board" class="row">
+                        <div id="logo-box" class="col-md-2"><img id="logo" src="assets/img/mon.png"></div>
+                        <div class="col-md-6">
+                            <h1>Тест монітора онлайн</h1>
+                            <p>
+                                <!-- Добро пожаловать на monteon — сервис для теста монитора компьютера, дисплея мобильного
+                                устройства или экрана Смарт-телевизора.
+                                Тестовые экранные шаблоны помогут вам оценить качество изображения монитора.
+                                Вы легко сможете проверить монитор на бытые пиксели, цветопередачу, отклик и другие
+                                параметры, а также настроить и откалибровать монитор, чтобы получить наилучшее качество
+                                изображения.
+                                Эти тесты являются гораздо более показательным в оценке недостатков мониторов, чем
+                                обычные фотографии. -->
+
+                                Ласкаво просимо до monitor test — сервіс для тесту монітора комп'ютера, дисплея
+                                мобільного
+                                пристрою або екрану Смарт-телевізора.
+                                Тестові екранні шаблони допоможуть оцінити якість зображення монітора.
+                                Ви легко зможете перевірити монітор на биті пікселі, кольору передачу, час реакції
+                                (відгук) монітору та інші
+                                параметри, а також налаштувати та відкалібрувати монітор, щоб отримати найкращу якість
+                                зображення.
+                                Ці тести набагато показовіші в оцінці недоліків моніторів (екранів), ніж
+                                Звичайні фотографії.
+                            </p>
+                            <button id="start" class="btn btn-primary btn-lg">Почати тести</button>
+                            <a href="https://monteon.ru/about-tests.html" id="more">Дізнатись більше про тести</a>
+
+                            <!-- <p></p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas" width="1920" height="912" style="display: none; cursor: default;"></canvas>
+
+        <div id="controls" class="noselect" style="opacity: 1; display: none;">
+            <div id="indicators">
+                <ol id="indicators-list" class="carousel-indicators">
+                    <li data-index="0" class=""></li>
+                    <li data-index="1" class=""></li>
+                    <li data-index="2" class=""></li>
+                    <li data-index="3"></li>
+                </ol>
+            </div>
+
+            <div id="buttons">
+                <button id="home" class="btn btn-default btn-inv" title="В начало"><span
+                          class="glyphicon glyphicon-home"></span></button>
+
+                <div id="xs-buttons">
+                    <button id="rotate-ccw" class="btn btn-default btn-xs btn-inv disabled"
+                            title="Повернуть влево"><span
+                              class="glyphicon glyphicon-repeat glyphicon-ccw"></span></button>
+                    <button id="rotate-cw" class="btn btn-default btn-xs btn-inv disabled"
+                            title="Повернуть вправо"><span
+                              class="glyphicon glyphicon-repeat glyphicon-cw"></span></button>
+                </div>
+                <div id="screen-groups" class="btn-group dropup">
+                    <button type="button" class="btn btn-default dropdown-toggle btn-inv" data-toggle="dropdown"
+                            aria-expanded="false">
+                        <span id="sg-caption" class="caption">Динамические тесты</span> <span class="caret"></span>
+                    </button>
+                    <ul id="sg-list" class="dropdown-menu" role="menu">
+                        <!-- <li data-index="0" class=""><a href="/#">Цветопередача</a></li>
+                        <li data-index="1"><a href="#">Градиенты</a></li>
+                        <li data-index="2"><a href="#">Мерцание</a></li>
+                        <li data-index="3"><a href="#">Резкость</a></li>
+                        <li data-index="4"><a href="#">Контрастность и яркость</a></li>
+                        <li data-index="5"><a href="#">Геометрия и сетки</a></li>
+                        <li data-index="6"><a href="#" title="Динамічні тести, Динамические тесты">Динамічні тести</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <button id="fsToggle" class="btn btn-default btn-inv" title="Полноэкранный режим (вкл./выкл.)"><span
+                      class="glyphicon glyphicon-fullscreen"></span></button>
+        </div>
+
+        <div id="nav-controls" style="opacity: 1; display: none;">
+            <a class="left carousel-control" href="#prev" role="button" data-slide="prev"
+               style="cursor: pointer;">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#next" role="button" data-slide="next"
+               style="cursor: pointer;">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="fin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div>
+                            <h3>Тести завершились</h3>
+                            <p>
+                                <!-- Надеемся вы не нашли ни одного дефекта и вам помогли данные тесты проверить и настроить
+                                монитор. -->
+                                Сподіваємося ви не знайшли жодного дефекту і вам допомогли дані тести перевірити та
+                                налаштувати
+                                монітор.
+                            </p>
+                            <p>
+                                <!-- Будем рады если вы поделитесь ссылкой с друзьями. -->
+                                Будемо раді, якщо ви поділитеся посиланням з друзями.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="fin-close" type="button" class="btn btn-default"
+                                data-dismiss="modal">Завершити</button>
+                        <button id="fin-restart" type="button" class="btn btn-primary">Продовжити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tad-box" style="opacity: 0.913265; display: none;">
+            <div id="tad">
+                <button id="close-ad" class="btn btn-default btn-xs" title="Закрыть"><span
+                          class="glyphicon glyphicon-remove-circle"></span></button>
+            </div>
+        </div>
+        <video id="video" loop="" style="display:none;">
+            <source src="/img/vi.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="madv"></div>
+
+    <footer id="page-footer" style="display: block;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><a href="/" title="тест монітора онлайн, тест монитора онлайн">тест монітора онлайн</a></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <a href="https://monteon.ru/about.html">Про проєкт</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script> -->
+    <script src="assets/js/jquery.mobile.custom.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+
+</body>
+
+</html>
