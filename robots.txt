@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block common non-content paths
+Disallow: /assets/
+
+# Allow search engines to find all pages
+Sitemap: https://monitortest.pp.ua/sitemap.xml
+
+Crawl-delay: 1
