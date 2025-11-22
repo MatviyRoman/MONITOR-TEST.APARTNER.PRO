@@ -172,7 +172,7 @@
                             
                             <div id="pixelTestArea" style="display: none;">
                                 <h2>Тестова область</h2>
-                                <p>Натискайте на кнопки для переключення кольорів:</p>
+                                <p>Натискайте на кнопки або використовуйте стрілки клавіатури для переключення кольорів:</p>
                                 
                                 <div class="color-buttons">
                                     <button id="redScreen" class="btn btn-danger btn-lg">Червоний екран</button>
@@ -184,7 +184,27 @@
                                 
                                 <div id="colorDisplay" style="width: 100%; height: 400px; background: red; margin: 20px 0; border: 2px solid #333;"></div>
                                 
-                                <p><button id="exitTest" class="btn btn-warning">Завершити тест</button></p>
+                                <p>
+                                    <button id="fullscreenTest" class="btn btn-success btn-lg">Повноекранний режим</button>
+                                    <button id="exitTest" class="btn btn-warning">Завершити тест</button>
+                                </p>
+                                
+                                <p class="text-muted">
+                                    <small>Стрілки ← → для зміни кольору | ESC для виходу з повноекранного режиму</small>
+                                </p>
+                            </div>
+                            
+                            <!-- Повноекранний режим -->
+                            <div id="fullscreenTestArea" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: red; z-index: 9999;">
+                                <div id="fullscreenColorDisplay" style="width: 100%; height: 100%; background: red;"></div>
+                                <div id="fullscreenControls" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 10000;">
+                                    <div class="text-center">
+                                        <p style="color: white; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; margin: 0;">
+                                            <span id="currentColorName">Червоний</span> | 
+                                            Стрілки ← → для зміни кольору | ESC для виходу
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             
                             <h2>Що робити, якщо знайдено біті пікселі?</h2>
@@ -241,7 +261,9 @@
                 <div class="col-sm-4">
                     <p>
                         <a href="about.html">Про проєкт</a> | 
-                        <a href="blog/">Блог</a>
+                        <a href="blog/">Блог</a> | 
+                        <a href="pixel-test.html">Тест пікселів</a> | 
+                        <a href="pixel-recovery.html">Відновлення пікселів</a>
                     </p>
                 </div>
             </div>
@@ -255,34 +277,141 @@
     
     <script>
     $(document).ready(function() {
+        var colors = [
+            { name: 'Червоний', color: 'red' },
+            { name: 'Зелений', color: 'green' },
+            { name: 'Синій', color: 'blue' },
+            { name: 'Білий', color: 'white' },
+            { name: 'Чорний', color: 'black' }
+        ];
+        var currentColorIndex = 0;
+        var isFullscreen = false;
+        
+        function updateColor(color) {
+            $('#colorDisplay').css('background', color);
+            $('#fullscreenColorDisplay').css('background', color);
+            
+            // Оновлюємо назву кольору
+            currentColorIndex = colors.findIndex(c => c.color === color);
+            $('#currentColorName').text(colors[currentColorIndex].name);
+        }
+        
+        function nextColor() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            updateColor(colors[currentColorIndex].color);
+        }
+        
+        function prevColor() {
+            currentColorIndex = (currentColorIndex - 1 + colors.length) % colors.length;
+            updateColor(colors[currentColorIndex].color);
+        }
+        
+        function enterFullscreen() {
+            $('#pixelTestArea').hide();
+            $('#fullscreenTestArea').show();
+            isFullscreen = true;
+            
+            // Запитуємо повноекранний режим
+            var elem = document.getElementById('fullscreenTestArea');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+        
+        function exitFullscreen() {
+            $('#fullscreenTestArea').hide();
+            $('#pixelTestArea').show();
+            isFullscreen = false;
+            
+            // Виходимо з повноекранного режиму
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+        
         $('#startPixelTest').click(function() {
             $('#pixelTestArea').show();
             $(this).hide();
+            currentColorIndex = 0;
+            updateColor(colors[0].color);
         });
         
         $('#redScreen').click(function() {
-            $('#colorDisplay').css('background', 'red');
+            updateColor('red');
         });
         
         $('#greenScreen').click(function() {
-            $('#colorDisplay').css('background', 'green');
+            updateColor('green');
         });
         
         $('#blueScreen').click(function() {
-            $('#colorDisplay').css('background', 'blue');
+            updateColor('blue');
         });
         
         $('#whiteScreen').click(function() {
-            $('#colorDisplay').css('background', 'white');
+            updateColor('white');
         });
         
         $('#blackScreen').click(function() {
-            $('#colorDisplay').css('background', 'black');
+            updateColor('black');
+        });
+        
+        $('#fullscreenTest').click(function() {
+            enterFullscreen();
         });
         
         $('#exitTest').click(function() {
+            if (isFullscreen) {
+                exitFullscreen();
+            }
             $('#pixelTestArea').hide();
+            $('#fullscreenTestArea').hide();
             $('#startPixelTest').show();
+            isFullscreen = false;
+        });
+        
+        // Обробка клавіатури
+        $(document).keydown(function(e) {
+            // Працює як в повноекранному, так і в звичайному режимі
+            if (!$('#pixelTestArea').is(':visible') && !isFullscreen) return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    prevColor();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextColor();
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    if (isFullscreen) {
+                        exitFullscreen();
+                    }
+                    break;
+            }
+        });
+        
+        // Обробка зміни повноекранного режиму
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement && isFullscreen) {
+                exitFullscreen();
+            }
+        });
+        
+        document.addEventListener('webkitfullscreenchange', function() {
+            if (!document.webkitFullscreenElement && isFullscreen) {
+                exitFullscreen();
+            }
         });
     });
     </script>
