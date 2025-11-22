@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="uk" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Відновлення пікселів онлайн - безкоштовний сервіс | monitor-test</title>
+    <meta name="description"
+          content="Безкоштовний онлайн сервіс для відновлення застряглих пікселів (stuck pixels). Швидка та безпечна процедура оживлення пікселів на моніторі, екрані телефону чи телевізора.">
+    <meta name="keywords"
+          content="відновлення пікселів, оживлення пікселів, stuck pixel recovery, ремонт пікселів, застряглі пікселі, лікування пікселів онлайн">
+    <meta name="copyright" content="apartner.top">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://monitortest.pp.ua/pixel-recovery.html">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Відновлення пікселів онлайн - безкоштовний сервіс">
+    <meta property="og:description" content="Безкоштовний онлайн сервіс для відновлення застряглих пікселів. Швидка та безпечна процедура оживлення пікселів.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://monitortest.pp.ua/pixel-recovery.html">
+    <meta property="og:image" content="https://monitortest.pp.ua/assets/img/mon.png">
+    <meta property="og:locale" content="uk_UA">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Відновлення пікселів онлайн - безкоштовний сервіс">
+    <meta name="twitter:description" content="Безкоштовний онлайн сервіс для відновлення застряглих пікселів.">
+    <meta name="twitter:image" content="https://monitortest.pp.ua/assets/img/mon.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Як відновити застряглі пікселі",
+        "description": "Покрокова інструкція для відновлення застряглих пікселів на моніторі за допомогою онлайн сервісу",
+        "image": "https://monitortest.pp.ua/assets/img/mon.png",
+        "totalTime": "PT10M",
+        "supply": [
+            {
+                "@type": "HowToSupply",
+                "name": "Комп'ютер, телефон чи планшет з екраном"
+            }
+        ],
+        "tool": [
+            {
+                "@type": "HowToTool",
+                "name": "Онлайн сервіс відновлення пікселів"
+            }
+        ],
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Запустіть сервіс відновлення",
+                "text": "Натисніть кнопку для запуску процедури відновлення пікселів"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Перейдіть в повноекранний режим",
+                "text": "Натисніть F11 або кнопку повноекранного режиму для максимальної ефективності"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Чекайте завершення процедури",
+                "text": "Сервіс автоматично змінюватиме кольори для стимуляції пікселів"
+            }
+        ],
+        "url": "https://monitortest.pp.ua/pixel-recovery.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Тест монітора онлайн",
+            "url": "https://monitortest.pp.ua"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": "https://monitortest.pp.ua"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Відновлення пікселів",
+                    "item": "https://monitortest.pp.ua/pixel-recovery.html"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .recovery-area {
+            width: 100%;
+            height: 400px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #333;
+            margin: 20px 0;
+        }
+        
+        .fullscreen-recovery {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: none;
+        }
+        
+        .recovery-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 10000;
+        }
+        
+        .pixel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+            gap: 1px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .pixel {
+            background: #000;
+            transition: background-color 0.1s ease;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .recovery-stats {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+</head>
+
+<body cz-shortcut-listen="true" class="" style="cursor: default;">
+    <header id="page-header" style="display: block;">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        <a class="navbar-title" href="/"
+                           title="проовірка монітора онлайн, проверка монитора онлайн">monitor-test</a>&nbsp;&nbsp;&nbsp;<sup>тест
+                            монітора онлайн</sup>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article">
+        <div id="front" style="display: block;">
+            <div class="front-content">
+                <div class="container">
+                    <div id="board" class="row">
+                        <div id="logo-box" class="col-md-2"><img id="logo" src="assets/img/mon.png" width="128" height="128" alt="проовірка монітора онлайн, online monitor check, проверка монитора онлайн"></div>
+                        <div class="col-md-8 main">
+                            <h1>Відновлення пікселів онлайн</h1>
+                            <p>
+                                Застряглі пікселі (stuck pixels) - це дефекти екрана, коли окремі пікселі 
+                                постійно світяться одним кольором. Наш безкоштовний онлайн сервіс допоможе 
+                                "оживити" такі пікселі за допомогою швидкої зміни кольорів.
+                            </p>
+                            
+                            <div class="warning-box">
+                                <h3>⚠️ Важливе попередження</h3>
+                                <p>
+                                    <strong>Цей сервіс працює тільки зі stuck пікселями (застряглими пікселями).</strong><br>
+                                    Dead пікселі (мертві пікселі) не відновлюються, оскільки вони фізично не працюють.
+                                </p>
+                                <ul>
+                                    <li><strong>Stuck pixel:</strong> світиться червоним, зеленим, синім або білим - МОЖНА відновити</li>
+                                    <li><strong>Dead pixel:</strong> завжди чорний - НЕ МОЖНА відновити</li>
+                                </ul>
+                            </div>
+                            
+                            <h2>Як працює відновлення пікселів?</h2>
+                            <p>
+                                Метод заснований на швидкій зміні кольорів, що стимулює застряглі субпікселі 
+                                повернутися до нормального стану. Процедура абсолютно безпечна для вашого екрана.
+                            </p>
+                            
+                            <h3>Принцип дії:</h3>
+                            <ul>
+                                <li><strong>Швидка зміна кольорів</strong> - стимулює субпікселі</li>
+                                <li><strong>Різні частоти</strong> - впливає на різні типи пікселів</li>
+                                <li><strong>Тепловий ефект</strong> - допомагає "розігнати" застряглі елементи</li>
+                                <li><strong>Безпека</strong> - не шкодить апаратній частині екрана</li>
+                            </ul>
+                            
+                            <h2>Інструкція використання</h2>
+                            <div class="recovery-instructions">
+                                <h3>Крок 1: Підготовка</h3>
+                                <ul>
+                                    <li>Закрийте всі програми та вікна</li>
+                                    <li>Переконайтеся, що піксель дійсно застряглий (не мертвий)</li>
+                                    <li>Запам'ятайте місцезнаходження проблемного пікселя</li>
+                                </ul>
+                                
+                                <h3>Крок 2: Запуск процедури</h3>
+                                <ul>
+                                    <li>Натисніть кнопку "Почати відновлення"</li>
+                                    <li>Перейдіть в повноекранний режим (F11)</li>
+                                    <li>Розмістіть екран так, щоб проблемний піксель був в центрі</li>
+                                </ul>
+                                
+                                <h3>Крок 3: Процедура відновлення</h3>
+                                <ul>
+                                    <li>Чекайте 5-10 хвилин для першої спроби</li>
+                                    <li>Повторюйте процедуру 2-3 рази з перервами</li>
+                                    <li>Перевіряйте результат після кожної сесії</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button id="startRecovery" class="btn btn-success btn-lg">Почати відновлення пікселів</button>
+                            </div>
+                            
+                            <div id="recoveryArea" style="display: none;">
+                                <h2>Область відновлення</h2>
+                                <p>Сервіс автоматично змінюватиме кольори для стимуляції застряглих пікселів:</p>
+                                
+                                <div class="recovery-controls">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Режим відновлення:</label>
+                                            <select id="recoveryMode" class="form-control">
+                                                <option value="rapid">Швидка зміна кольорів</option>
+                                                <option value="slow">Повільна стимуляція</option>
+                                                <option value="random">Випадкові кольори</option>
+                                                <option value="grid">Сіткова стимуляція</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Швидкість:</label>
+                                            <select id="recoverySpeed" class="form-control">
+                                                <option value="fast">Швидко</option>
+                                                <option value="medium">Середньо</option>
+                                                <option value="slow">Повільно</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Тривалість:</label>
+                                            <select id="recoveryDuration" class="form-control">
+                                                <option value="5">5 хвилин</option>
+                                                <option value="10">10 хвилин</option>
+                                                <option value="15">15 хвилин</option>
+                                                <option value="30">30 хвилин</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="recoveryDisplay" class="recovery-area">
+                                    <div id="pixelGrid" class="pixel-grid"></div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button id="fullscreenRecovery" class="btn btn-primary btn-lg">Повноекранний режим</button>
+                                    <button id="stopRecovery" class="btn btn-danger btn-lg">Зупинити відновлення</button>
+                                </div>
+                                
+                                <div class="recovery-stats">
+                                    <h4>Статистика відновлення:</h4>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <strong>Час роботи:</strong> <span id="elapsedTime">00:00</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Змін кольорів:</strong> <span id="colorChanges">0</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Поточний колір:</strong> <span id="currentColor">Чорний</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong>Статус:</strong> <span id="recoveryStatus">Готовий</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Повноекранний режим -->
+                            <div id="fullscreenRecoveryArea" class="fullscreen-recovery">
+                                <div id="fullscreenPixelGrid" class="pixel-grid"></div>
+                                <div class="recovery-info">
+                                    <h4>Режим відновлення пікселів</h4>
+                                    <p>
+                                        <span id="fullscreenCurrentColor">Чорний</span> | 
+                                        Час: <span id="fullscreenTime">00:00</span> | 
+                                        ESC для виходу
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <h2>Ефективність методу</h2>
+                            <div class="success-box">
+                                <h3>✅ Що можна очікувати:</h3>
+                                <ul>
+                                    <li><strong>70-80% успіх</strong> для свіжих stuck пікселів</li>
+                                    <li><strong>40-60% успіх</strong> для старих застряглих пікселів</li>
+                                    <li><strong>0% успіх</strong> для dead пікселів (мертвих)</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>Фактори, що впливають на успіх:</h3>
+                            <ul>
+                                <li><strong>Вік дефекту</strong> - чим свіжий, тим краще</li>
+                                <li><strong>Тип екрана</strong> - IPS, VA, TN мають різну чутливість</li>
+                                <li><strong>Кількість спроб</strong> - повторення підвищує шанси</li>
+                                <li><strong>Тривалість</strong> - довші сесії ефективніші</li>
+                            </ul>
+                            
+                            <h2>Альтернативні методи</h2>
+                            <h3>Фізичний метод (обережно!)</h3>
+                            <div class="warning-box">
+                                <p><strong>Використовуйте на свій страх і ризик!</strong></p>
+                                <ol>
+                                    <li>Вимкніть монітор</li>
+                                    <li>Злегка натисніть на область застряглого пікселя тканиною</li>
+                                    <li>Утримуйте 10-15 секунд</li>
+                                    <li>Увімкніть монітор</li>
+                                </ol>
+                                <p><strong>Ризики:</strong> можна пошкодити екран, якщо натискати занадто сильно!</p>
+                            </div>
+                            
+                            <h3>Програмні рішення</h3>
+                                    <ul>
+                                    <li><strong>UDPixel</strong> - безкоштовна програма для Windows</li>
+                                    <li><strong>JScreenFix</strong> - Java аплет для відновлення</li>
+                                    <li><strong>Pixel Doctor</strong> - мобільний додаток</li>
+                                </ul>
+                            
+                            <h2>Профілактика проблем з пікселями</h2>
+                            <ul>
+                                <li><strong>Використовуйте screen saver</strong> - уникайте статичних зображень</li>
+                                <li><strong>Змінюйте яскравість</strong> - регулярні зміни допомагають пікселям</li>
+                                <li><strong>Уникайте фізичних ударів</strong> - обережне звернення з екраном</li>
+                                <li><strong>Правильне живлення</strong> - стабільне напруга важлива</li>
+                            </ul>
+                            
+                            <h2>Часті питання</h2>
+                            <div class="faq">
+                                <p><strong>Чи безпечний цей метод для екрана?</strong><br>
+                                Так, метод абсолютно безпечний. Він не впливає на апаратну частину екрана.</p>
+                                
+                                <p><strong>Скільки часу потрібно для відновлення?</strong><br>
+                                Зазвичай 5-30 хвилин. Іноді потрібно кілька сесій з перервами.</p>
+                                
+                                <p><strong>Чи працює це з dead пікселями?</strong><br>
+                                Ні, dead пікселі фізично не працюють і не можуть бути відновлені.</p>
+                                
+                                <p><strong>Чи можна використовувати на телефоні?</strong><br>
+                                Так, метод працює на будь-якому типі екранів (LCD, OLED, AMOLED).</p>
+                                
+                                <p><strong>Що робити, якщо не допомогло?</strong><br>
+                                Спробуйте повторити процедуру кілька разів або зверніться до сервісного центру.</p>
+                            </div>
+                            
+                            <h2>Коли звертатися до сервісного центру</h2>
+                            <ul>
+                                <li>Якщо є багато dead пікселів (>5 для нового монітора)</li>
+                                <li>Якщо після 10 спроб відновлення не допомогло</li>
+                                <li>Якщо монітор на гарантії</li>
+                                <li>Якщо з'являються нові дефекти</li>
+                            </ul>
+                            
+                            <p class="text-center">
+                                <a href="pixel-test.html" class="btn btn-primary btn-lg">Спочатку перевірити пікселі</a>
+                            </p>
+                            
+                            <p class="text-center">
+                                <a href="/" class="btn btn-default btn-lg">Інші тести монітора</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="page-footer" style="display: block;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><a href="/" title="тест монітора онлайн, тест монитора онлайн">тест монітора онлайн</a></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <a href="about.html">Про проєкт</a> | 
+                        <a href="blog/">Блог</a> | 
+                        <a href="pixel-test.html">Тест пікселів</a> | 
+                        <a href="pixel-recovery.html">Відновлення пікселів</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.mobile.custom.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        var recoveryInterval = null;
+        var colorChangeInterval = null;
+        var startTime = null;
+        var colorChangeCount = 0;
+        var isFullscreen = false;
+        
+        var colors = ['red', 'green', 'blue', 'white', 'black', 'yellow', 'cyan', 'magenta'];
+        var colorNames = {
+            'red': 'Червоний',
+            'green': 'Зелений', 
+            'blue': 'Синій',
+            'white': 'Білий',
+            'black': 'Чорний',
+            'yellow': 'Жовтий',
+            'cyan': 'Блакитний',
+            'magenta': 'Пурпурний'
+        };
+        
+        function createPixelGrid(container) {
+            var width = container.width();
+            var height = container.height();
+            var pixelSize = 20;
+            var cols = Math.floor(width / pixelSize);
+            var rows = Math.floor(height / pixelSize);
+            
+            container.empty();
+            
+            for (var i = 0; i < rows * cols; i++) {
+                var pixel = $('<div class="pixel"></div>');
+                container.append(pixel);
+            }
+        }
+        
+        function updatePixelGrid(color) {
+            $('.pixel').css('background-color', color);
+            $('#currentColor').text(colorNames[color] || color);
+            $('#fullscreenCurrentColor').text(colorNames[color] || color);
+            colorChangeCount++;
+            $('#colorChanges').text(colorChangeCount);
+        }
+        
+        function startRecovery() {
+            var mode = $('#recoveryMode').val();
+            var speed = $('#recoverySpeed').val();
+            var duration = parseInt($('#recoveryDuration').val()) * 60 * 1000; // в мс
+            
+            $('#recoveryArea').show();
+            $('#startRecovery').hide();
+            
+            // Створюємо сітку пікселів
+            createPixelGrid($('#pixelGrid'));
+            createPixelGrid($('#fullscreenPixelGrid'));
+            
+            // Запускаємо таймер
+            startTime = Date.now();
+            colorChangeCount = 0;
+            
+            recoveryInterval = setInterval(updateTimer, 1000);
+            
+            // Налаштовуємо швидкість зміни кольорів
+            var intervalSpeed = speed === 'fast' ? 50 : (speed === 'medium' ? 200 : 500);
+            
+            // Запускаємо зміну кольорів
+            if (mode === 'rapid') {
+                startRapidMode(intervalSpeed);
+            } else if (mode === 'slow') {
+                startSlowMode(intervalSpeed);
+            } else if (mode === 'random') {
+                startRandomMode(intervalSpeed);
+            } else if (mode === 'grid') {
+                startGridMode(intervalSpeed);
+            }
+            
+            // Автоматична зупинка через заданий час
+            setTimeout(function() {
+                stopRecovery();
+            }, duration);
+            
+            $('#recoveryStatus').text('Відновлення...');
+        }
+        
+        function startRapidMode(speed) {
+            var colorIndex = 0;
+            colorChangeInterval = setInterval(function() {
+                updatePixelGrid(colors[colorIndex]);
+                colorIndex = (colorIndex + 1) % colors.length;
+            }, speed);
+        }
+        
+        function startSlowMode(speed) {
+            var colorIndex = 0;
+            colorChangeInterval = setInterval(function() {
+                updatePixelGrid(colors[colorIndex]);
+                colorIndex = (colorIndex + 1) % colors.length;
+            }, speed * 4);
+        }
+        
+        function startRandomMode(speed) {
+            colorChangeInterval = setInterval(function() {
+                var randomColor = colors[Math.floor(Math.random() * colors.length)];
+                updatePixelGrid(randomColor);
+            }, speed);
+        }
+        
+        function startGridMode(speed) {
+            var pixels = $('.pixel');
+            var pixelIndex = 0;
+            
+            colorChangeInterval = setInterval(function() {
+                pixels.each(function(index) {
+                    var color = colors[(index + pixelIndex) % colors.length];
+                    $(this).css('background-color', color);
+                });
+                pixelIndex++;
+                colorChangeCount++;
+                $('#colorChanges').text(colorChangeCount);
+            }, speed);
+        }
+        
+        function updateTimer() {
+            if (!startTime) return;
+            
+            var elapsed = Date.now() - startTime;
+            var minutes = Math.floor(elapsed / 60000);
+            var seconds = Math.floor((elapsed % 60000) / 1000);
+            
+            var timeString = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+            $('#elapsedTime').text(timeString);
+            $('#fullscreenTime').text(timeString);
+        }
+        
+        function stopRecovery() {
+            if (recoveryInterval) {
+                clearInterval(recoveryInterval);
+                recoveryInterval = null;
+            }
+            
+            if (colorChangeInterval) {
+                clearInterval(colorChangeInterval);
+                colorChangeInterval = null;
+            }
+            
+            $('#recoveryStatus').text('Зупинено');
+            
+            if (isFullscreen) {
+                exitFullscreen();
+            }
+        }
+        
+        function enterFullscreen() {
+            $('#recoveryArea').hide();
+            $('#fullscreenRecoveryArea').show();
+            isFullscreen = true;
+            
+            var elem = document.getElementById('fullscreenRecoveryArea');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+        
+        function exitFullscreen() {
+            $('#fullscreenRecoveryArea').hide();
+            $('#recoveryArea').show();
+            isFullscreen = false;
+            
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+        
+        $('#startRecovery').click(function() {
+            startRecovery();
+        });
+        
+        $('#fullscreenRecovery').click(function() {
+            enterFullscreen();
+        });
+        
+        $('#stopRecovery').click(function() {
+            stopRecovery();
+            $('#recoveryArea').hide();
+            $('#fullscreenRecoveryArea').hide();
+            $('#startRecovery').show();
+        });
+        
+        // Обробка клавіатури
+        $(document).keydown(function(e) {
+            if (!isFullscreen) return;
+            
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                exitFullscreen();
+            }
+        });
+        
+        // Обробка зміни повноекранного режиму
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement && isFullscreen) {
+                exitFullscreen();
+            }
+        });
+        
+        document.addEventListener('webkitfullscreenchange', function() {
+            if (!document.webkitFullscreenElement && isFullscreen) {
+                exitFullscreen();
+            }
+        });
+    });
+    </script>
+
+</body>
+
+</html>
