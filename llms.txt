@@ -1,0 +1,45 @@
+# Monitor-Test
+
+> Безкоштовний онлайн-сервіс для тестування та калібрування моніторів
+
+Monitor-Test (monitortest.pp.ua) — це безкоштовний кросплатформний онлайн-інструмент для перевірки якості екранів комп'ютерів, ноутбуків, смартфонів, планшетів та телевізорів. Сервіс допомагає виявити биті пікселі, перевірити кольоропередачу, контрастність, гамму та інші параметри дисплея безпосередньо у браузері без встановлення додаткового програмного забезпечення.
+
+## Можливості сервісу
+- **Тест на биті пікселі**: Однотонні заливки екрану для виявлення дефектних пікселів
+- **Перевірка кольоропередачі**: Градієнтні тести для оцінки якості відображення кольорів
+- **Тест контрастності**: Перевірка рівня контрасту та яскравості монітора
+- **Калібрування гамми**: Інструменти для правильного налаштування гамми екрана
+- **Відновлення пікселів**: Спеціальний інструмент для спроби відновлення «застряглих» пікселів
+- **Тест часу відгуку**: Перевірка швидкості реакції матриці монітора
+
+## Підтримувані пристрої
+- Комп'ютерні монітори (IPS, TN, VA, OLED)
+- Ноутбуки
+- Смартфони та планшети (Android, iPhone, iPad)
+- Smart-телевізори
+- CRT-монітори
+
+## Ключові сторінки
+- [Головна — Тест монітора онлайн](https://monitortest.pp.ua/)
+- [Про проєкт](https://monitortest.pp.ua/about.html)
+- [Детальніше про тести](https://monitortest.pp.ua/about-tests.html)
+- [Типи моніторів](https://monitortest.pp.ua/monitor-types.html)
+- [Тест пікселів](https://monitortest.pp.ua/pixel-test.html)
+- [Відновлення пікселів](https://monitortest.pp.ua/pixel-recovery.html)
+- [Блог](https://monitortest.pp.ua/blog/)
+- [Політика конфіденційності](https://monitortest.pp.ua/privacy-policy.html)
+- [Умови використання](https://monitortest.pp.ua/terms.html)
+
+## Статті блогу
+- [Як вибрати монітор для роботи: повний гід](https://monitortest.pp.ua/blog/jak-vibrati-monitor-dlya-roboti.html)
+- [IPS vs TN матриці: який варіант вибрати?](https://monitortest.pp.ua/blog/ips-vs-tn-matrici-yakij-variant-vibrati.html)
+- [Калібрування монітора: як досягти ідеального зображення](https://monitortest.pp.ua/blog/kalibruvannya-monitoru-yak-dosyagti-idealnogo-zobrazhennya.html)
+- [4K монітори: чи варто інвестувати?](https://monitortest.pp.ua/blog/4k-monitori-chi-vartuye-investuvati.html)
+- [HDR технологія: як працює та чи потрібна?](https://monitortest.pp.ua/blog/hdr-technologiya-yak-pracyuye-ta-chi-potribna.html)
+- [Порядок для роботи з монітором: ергономіка та здоров'я](https://monitortest.pp.ua/blog/poryadok-dlya-roboti-z-monitorom.html)
+- [Геймерські монітори: на що звернути увагу](https://monitortest.pp.ua/blog/geymerski-monitori-na-scho-zvernuti-uvagu.html)
+- [Ultrawide монітори: чи потрібні вам?](https://monitortest.pp.ua/blog/ultrawide-monitori-chi-potribni-vam.html)
+
+## Карта сайту
+Повний перелік сторінок доступний у XML-карті сайту:
+[sitemap.xml](https://monitortest.pp.ua/sitemap.xml)
