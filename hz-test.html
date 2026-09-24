@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="uk" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Тест герцівки монітора онлайн (Refresh Rate / UFO Test) | monitor-test</title>
+    <meta name="description"
+          content="Безкоштовний онлайн тест герцівки монітора (Refresh Rate). Виміряйте реальний FPS та перевірте екран на шлейфи (ghosting). 60Hz, 120Hz, 144Hz, 240Hz UFO test.">
+    <meta name="keywords"
+          content="тест герцівки, перевірити герцівку монітора, ufo test, 144hz test, refresh rate test, тест шлейфів монітора, ghosting test, fps test">
+    <meta name="copyright" content="apartner.pro">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://monitortest.pp.ua/hz-test.html">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Тест герцівки монітора онлайн (Refresh Rate Test)">
+    <meta property="og:description" content="Виміряйте реальний FPS вашого монітора та перевірте екран на шлейфи (ghosting). Безкоштовний UFO test.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://monitortest.pp.ua/hz-test.html">
+    <meta property="og:image" content="https://monitortest.pp.ua/assets/img/mon.png">
+    <meta property="og:locale" content="uk_UA">
+    
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <style>
+        .hz-test-area {
+            width: 100%;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        #ufo-container {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            background: #2a2a2a;
+            overflow: hidden;
+            border: 2px solid #444;
+            border-radius: 4px;
+        }
+        .fps-value {
+            font-size: 54px;
+            font-weight: bold;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0,255,0,0.5);
+        }
+        .hz-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+    </style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2646134257100461" crossorigin="anonymous"></script>
+</head>
+
+<body cz-shortcut-listen="true" class="" style="cursor: default;">
+    <header id="page-header" style="display: block;">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">
+                        <a class="navbar-title" href="/"
+                           title="перевірка монітора онлайн">monitor-test</a>&nbsp;&nbsp;&nbsp;<sup>тест монітора онлайн</sup>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/about.html">Про проєкт</a></li>
+                        <li><a href="/blog/">Блог</a></li>
+                    </ul>
+                    <div class="navbar-right" style="margin-top: 8px; margin-right: 15px;">
+                        <a href="#" onclick="if(document.getElementById('start')){document.getElementById('start').click(); return false;} else {window.location.href='/'; return false;}" class="btn btn-primary">Почати тест</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article">
+        <div id="front" style="display: block;">
+            <div class="front-content">
+                <div class="container">
+                    <div id="board" class="row">
+                        <div id="logo-box" class="col-md-2"><img id="logo" src="assets/img/mon.png" width="128" height="128" alt="тест герцівки монітора"></div>
+                        <div class="col-md-10 main">
+                            <nav class="breadcrumb">
+                                <a href="/">Головна</a> / 
+                                <span class="current">Тест герцівки монітора (UFO Test)</span>
+                            </nav>
+                            
+                            <h1>Тест герцівки монітора онлайн</h1>
+                            <p style="font-size: 16px;">
+                                Цей інструмент дозволяє виміряти реальну частоту оновлення вашого дисплея (в Гц/FPS) та 
+                                перевірити матрицю на наявність "шлейфів" (ghosting). 
+                                Чим вища герцівка (144 Гц, 240 Гц), тим плавніше рухаються об'єкти на екрані.
+                            </p>
+                            
+                            <div class="hz-test-area">
+                                <h2 class="text-center" style="margin-top: 0; color: #fff;">
+                                    Частота оновлення вашого монітора:
+                                </h2>
+                                <div class="text-center" style="margin-bottom: 20px;">
+                                    <span class="fps-value" id="fps-display">Обчислення...</span>
+                                </div>
+                                
+                                <div id="ufo-container">
+                                    <canvas id="ufo-canvas"></canvas>
+                                </div>
+                                <div class="text-center" style="margin-top: 15px; color: #aaa; font-size: 13px;">
+                                    * Для точних результатів закрийте інші вкладки, не прокручуйте сторінку та переконайтеся, що апаратне прискорення в браузері увімкнене.
+                                </div>
+                            </div>
+                            
+                            <div class="hz-info">
+                                <h2>Як зрозуміти результати тесту?</h2>
+                                <p><strong>Верхній рядок (Max FPS):</strong> Рухається з максимальною частотою оновлення вашого екрану (наприклад, 60 разів за секунду для 60Hz, 144 рази для 144Hz моніторів). Цей рядок має виглядати найбільш плавно.</p>
+                                <p><strong>Середній рядок (1/2 FPS):</strong> Рухається з половинною частотою. Якщо у вас 60Hz монітор, цей об'єкт оновлюється лише 30 разів на секунду, тому рух здається більш "рваним".</p>
+                                <p><strong>Нижній рядок (1/4 FPS):</strong> Оновлюється ще рідше. Це наглядна демонстрація того, як виглядали б ігри або фільми з низьким FPS.</p>
+                                
+                                <h3>Що таке шлейфи (Ghosting)?</h3>
+                                <p>Уважно подивіться за рухомим об'єктом. Якщо ви бачите розмитий "слід" або тінь, яка тягнеться за ним, це означає, що матриця вашого монітора має повільний час відгуку (Response Time). Це особливо критично для динамічних ігор, де через високий ghosting зображення може втрачати чіткість у русі.</p>
+                            </div>
+                            
+                            <div class="text-center" style="margin: 40px 0;">
+                                <a href="/" class="btn btn-primary btn-lg">Перейти до інших тестів екрану</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="page-footer" style="display: block;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p><a href="/" title="тест монітора онлайн, тест монитора онлайн">тест монітора онлайн</a></p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://bookmark.apartner.pro/dr/monitortest.pp.ua" title="Domain Rating on Bookmark.Apartner.Pro">
+                          <img src="https://bookmark.apartner.pro/badge.php?domain=monitortest.pp.ua" alt="DR 83 - Bookmark.Apartner.Pro" width="230" height="28">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <a href="about.html">Про проєкт</a> | 
+                        <a href="blog/">Блог</a> | 
+                        <a href="pixel-test.html">Тест пікселів</a> | 
+                        <a href="pixel-recovery.html">Відновлення пікселів</a> |
+                        <a href="hz-test.html">Тест герцівки</a> |
+                        <a href="index.html#useful-services">Корисні сервіси</a> |
+                        <a href="privacy-policy.html">Політика конфіденційності</a> |
+                        <a href="terms.html">Умови використання</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    
+    <script>
+    (function() {
+        const canvas = document.getElementById('ufo-canvas');
+        const ctx = canvas.getContext('2d');
+        const fpsDisplay = document.getElementById('fps-display');
+        const container = document.getElementById('ufo-container');
+        
+        let width, height;
+        
+        function resize() {
+            width = container.clientWidth;
+            height = container.clientHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        let lastTime = performance.now();
+        let frameCount = 0;
+        let lastFpsTime = lastTime;
+        let currentFps = 0;
+
+        let frameIndex = 0;
+        let speedPerSecond = 800; // Пікселів за секунду
+        
+        let pos2 = 0;
+        let pos3 = 0;
+
+        function drawUFO(x, y, speedMode, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Кабіна (скло)
+            ctx.fillStyle = '#7dd3fc';
+            ctx.beginPath();
+            ctx.ellipse(0, -10, 15, 10, 0, Math.PI, 2 * Math.PI);
+            ctx.fill();
+            
+            // Корпус літаючої тарілки
+            ctx.fillStyle = color || '#38bdf8';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 35, 12, 0, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Вогники знизу
+            ctx.fillStyle = '#fde047';
+            ctx.beginPath();
+            ctx.arc(-20, 3, 3, 0, Math.PI * 2);
+            ctx.arc(0, 5, 3, 0, Math.PI * 2);
+            ctx.arc(20, 3, 3, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Текст (Швидкість)
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(speedMode, 0, 4);
+            
+            ctx.restore();
+        }
+
+        function loop(currentTime) {
+            frameCount++;
+            frameIndex++;
+            
+            if (currentTime - lastFpsTime >= 1000) {
+                currentFps = frameCount;
+                fpsDisplay.innerHTML = currentFps + " <span style='font-size:24px; color:#aaa; font-weight:normal;'>Гц</span>";
+                frameCount = 0;
+                lastFpsTime = currentTime;
+            }
+            
+            ctx.fillStyle = '#2a2a2a';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Малюємо розділові лінії (смуги руху)
+            ctx.fillStyle = '#444';
+            ctx.fillRect(0, height/3 - 1, width, 2);
+            ctx.fillRect(0, 2*height/3 - 1, width, 2);
+            
+            let totalDistance = (currentTime / 1000) * speedPerSecond;
+            let screenCycle = width + 100;
+            
+            let pos1 = (totalDistance % screenCycle) - 50;
+            
+            if (frameIndex % 2 === 0) {
+                pos2 = (totalDistance % screenCycle) - 50;
+            }
+            
+            if (frameIndex % 4 === 0) {
+                pos3 = (totalDistance % screenCycle) - 50;
+            }
+            
+            let mode1 = currentFps > 0 ? currentFps + " fps" : "Max";
+            let mode2 = currentFps > 0 ? Math.round(currentFps/2) + " fps" : "1/2";
+            let mode3 = currentFps > 0 ? Math.round(currentFps/4) + " fps" : "1/4";
+            
+            drawUFO(pos1, height/6, mode1, '#3b82f6');
+            drawUFO(pos2, height/2, mode2, '#f59e0b');
+            drawUFO(pos3, 5*height/6, mode3, '#ef4444');
+            
+            requestAnimationFrame(loop);
+        }
+
+        requestAnimationFrame(loop);
+    })();
+    </script>
+</body>
+</html>
